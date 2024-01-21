@@ -6,6 +6,7 @@
     <artifactId>fullSystem</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
+	<packaging>pom</packaging>
         <module>AlertAPI</module>
         <!-- Добавьте другие модули по мере необходимости -->
     </modules>
