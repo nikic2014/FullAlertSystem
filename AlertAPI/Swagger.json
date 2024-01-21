@@ -1,0 +1,132 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Send Alert API",
+    "description": "API for sending alerts",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/alert/byRole/{role}": {
+      "post": {
+        "tags": ["Send Alert Controller"],
+        "summary": "Send alert by role",
+        "description": "Send alert all user, who have on specified role",
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Alert data",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlertDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {"status": "success"},
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "example": {"status": "Bad request"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/alert/byId/{id}": {
+      "post": {
+        "tags": ["Send Alert Controller"],
+        "summary": "Send alert by ID",
+        "description": "Send alert based on specified user ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Alert data",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlertDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {"status": "success"}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "example": {"status": "Bad request"}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AlertDTO": {
+        "type": "object",
+        "properties": {
+          "idProject": {
+            "type": "integer"
+          },
+          "alertType": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "alertPath": {
+            "type": "string"
+          }
+        },
+        "required": ["idProject", "alertType", "message", "alertPath"]
+      },
+      "ResponseDTO": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
