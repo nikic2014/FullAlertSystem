@@ -8,6 +8,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>AlertAPI</module>
-        <!-- Другие модули, если есть... -->
+        <module>backendSiteDiplom</module>
     </modules>
 </project>
