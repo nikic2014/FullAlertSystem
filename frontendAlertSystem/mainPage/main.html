@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="mainStyle.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <main>
+        <div class="sidebar">
+            <div class="profile-info">
+                <p id = "Username">Username</p>
+                <p id = "ID">ID: 12345</p>
+            </div>
+            <button class="profil-button" style="background-color: #76b852;" onclick="toggleForm()">Создать проект</button>
+            <button class="profil-button" onclick="OpCloseReregister()">Редактировать профиль</button>
+            <button class="profil-button" style="background-color: #cc3f49;" onclick="logout()">Выйти из профиля</button>
+        </div>
+        <div class="projectsContainer">
+            <div class="non-project-block">
+                <h3>У вас пока нет проектов</h3>
+            </div>
+        </div>
+        
+        <div id="reregisterForm" style="position: absolute; background-color: #76b852; display: none;">
+            <button class="exit-project-btn" onclick="OpCloseReregister()" style="position: absolute;top: 5px;right: 5px; width: 30px;
+            height: 30px;">X</button>
+            <form class="register-form" style="margin-top: 25px;  text-align: center;">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="email address"/>
+                <input type="text" placeholder="telephone number"/>
+                <input type="text" placeholder="tg link"/>
+                <button type="button" onclick=reregister() style="background-color: #326b13; ;">save</button>
+            </form>
+        </div>
+
+        <div id="projectForm">
+            <button class="exit-project-btn" onclick="toggleForm()" style="position: absolute;top: 5px;right: 5px; width: 30px;
+            height: 30px;">X</button>
+            <form id="createProjectForm">
+                <label for="projectName">Название проекта:</label>
+                <input type="text" id="projectName" name="projectName" required>
+            
+                <label for="projectDescription">Описание проекта:</label>
+                <textarea id="projectDescription" name="projectDescription" rows="8" required></textarea>
+            
+                <div id="participants">
+                    <div class="participant">
+                        <input type="text" name="participantId" placeholder="ID участника" required>
+                        <input type="text" name="participantRole" placeholder="Роль участника" required>
+                        <span class="remove-participant" onclick="removeParticipant(this)">❌</span>
+                    </div>
+                </div>
+            
+                <button type="button" onclick="addParticipant()">Добавить участника</button>
+                <button type="button" onclick="submitForm()">Создать проект</button>
+            </form>
+        </div>
+    </main>
+    <script src="mainScript.js"></script>
+    <script src="form.js"></script>
+    <script src="projects.js"></script>
+</body>
+</html>

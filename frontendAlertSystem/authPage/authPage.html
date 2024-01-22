@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница авторизации</title>
+    <link rel="stylesheet" href="authPage.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <main>
+        <div class="login-page">
+            <div class="form">
+              <form class="register-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="email address"/>
+                <input type="text" placeholder="telephone number"/>
+                <input type="text" placeholder="tg link"/>
+                <button type="button" onclick=register()>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+              </form>
+              <form class="login-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <button type="button" onclick=login()>login</button>
+                <p class="message">Not registered? <a style="cursor: pointer;">Create an account</a></p>
+              </form>
+            </div>
+          </div>
+    </main>
+    <script src="authPage.js"></script>
+</body>
