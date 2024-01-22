@@ -1,4 +1,6 @@
+import datetime
 import json
+import time
 
 import aiogram
 import asyncio
@@ -25,6 +27,7 @@ async def on_kafka_message():
 
     try:
         await consumer.start()
+        print(f"INFO {datetime.datetime.now()} Kafka consumer запущен.")
 
         while True:
             message = await consumer.getone()
@@ -76,6 +79,7 @@ async def echo(message: types.Message):
 
 
 async def main():
+    print(f"INFO {datetime.datetime.now()} бот запущен.")
     await dp.start_polling(bot)
 
 

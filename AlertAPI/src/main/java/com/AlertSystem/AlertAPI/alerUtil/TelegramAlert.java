@@ -49,8 +49,6 @@ public class TelegramAlert {
         String topic = "telegram-alert";
         String key = "key";
         String value = jsonValue;
-        System.out.println(value);
-
 
         producer.send(new ProducerRecord<>(topic, key, value));
 
