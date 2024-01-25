@@ -45,7 +45,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/AlertSystem
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 2105
-
+    
   frontend:
     build:
       context: ./frontendAlertSystem
@@ -114,4 +114,5 @@ services:
     depends_on:
       - kafka
       - backend-alert-api
+      
 
