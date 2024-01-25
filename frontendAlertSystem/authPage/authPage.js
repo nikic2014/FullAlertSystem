@@ -18,6 +18,7 @@ $('.message a').click(function(){
     // Опции для запроса
     const options = {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json', // Указываем тип контента как JSON
         },
