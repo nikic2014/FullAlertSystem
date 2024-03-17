@@ -1,0 +1,40 @@
+name: PMDv2
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  analyze:
+    name: Analyze code with CodeQL
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          
+      - name: Build with Maven
+        run: mvn clean install -DskipTests=true
+      
+      - name: Run PMD
+        run: mvn pmd:pmd
+        continue-on-error: true
+      
+      - name: Save PMD results
+        run: |
+          mkdir -p pmd-results
+          mv target/site/pmd.xml pmd-results/
+        continue-on-error: true
+      
+      - name: Upload PMD results
+        uses: actions/upload-artifact@v2
+        with:
+          name: pmd-results
+          path: pmd-results
+
