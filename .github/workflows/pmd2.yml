@@ -32,7 +32,8 @@ jobs:
           mkdir -p pmd-results
           mv backendSiteDiplom/target/site/pmd.html pmd-results/
         continue-on-error: true
-      
+      - name: List files in directory
+        run: ls -R
       - name: Upload PMD results
         uses: actions/upload-artifact@v2
         with:
