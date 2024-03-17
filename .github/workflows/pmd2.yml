@@ -38,4 +38,8 @@ jobs:
         with:
           name: pmd-results
           path: pmd-results
+  artifacts:
+    name: PMD Results
+    path: pmd-results
+
 
