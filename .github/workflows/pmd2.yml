@@ -30,7 +30,7 @@ jobs:
       - name: Save PMD results
         run: |
           mkdir -p pmd-results
-          mv target/site/pmd.xml pmd-results/
+          mv backendSiteDiplom/target/site/pmd.html pmd-results/
         continue-on-error: true
       
       - name: Upload PMD results
