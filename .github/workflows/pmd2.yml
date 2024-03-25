@@ -2,9 +2,9 @@ name: PMDv2
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   analyze:
@@ -24,12 +24,12 @@ jobs:
         run: mvn clean install -DskipTests=true
       
       - name: Run PMD
-	run: |
-	  mvn pmd:pmd
-	  if grep -q 'com/AlertSystem' backendSiteDiplom/target/site/pmd.html; then
-	    echo "String 'com/AlertSystem' found in PMD report."
-	    exit 1
-	  fi
+        run: |
+          mvn pmd:pmd
+          if grep -q 'com/AlertSystem' backendSiteDiplom/target/site/pmd.html; then
+            echo "String 'com/AlertSystem' found in PMD report."
+            exit 1
+          fi
       
       - name: Save PMD results
         run: |
@@ -37,8 +37,10 @@ jobs:
           mv backendSiteDiplom/target/site/pmd.html pmd-results/
           python3 scripts/analyze_pmd.py pmd-results/pmd.html
         continue-on-error: true
+      
       - name: List files in directory
         run: ls -R
+      
       - name: Upload PMD results
         uses: actions/upload-artifact@v2
         with:
@@ -54,5 +56,4 @@ jobs:
         with:
           name: pmd-results
           path: pmd-results
-
 
