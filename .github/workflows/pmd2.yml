@@ -24,8 +24,12 @@ jobs:
         run: mvn clean install -DskipTests=true
       
       - name: Run PMD
-        run: mvn pmd:pmd
-        continue-on-error: true
+	run: |
+	  mvn pmd:pmd
+	  if grep -q 'com/AlertSystem' backendSiteDiplom/target/site/pmd.html; then
+	    echo "String 'com/AlertSystem' found in PMD report."
+	    exit 1
+	  fi
       
       - name: Save PMD results
         run: |
