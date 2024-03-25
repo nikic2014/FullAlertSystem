@@ -31,6 +31,7 @@ jobs:
         run: |
           mkdir -p pmd-results
           mv backendSiteDiplom/target/site/pmd.html pmd-results/
+          python3 analyze_pmd.py pmd-results/pmd.html
         continue-on-error: true
       - name: List files in directory
         run: ls -R
