@@ -86,8 +86,6 @@ public class ProjectController {
     }
 
     public boolean haveRool(String jwtCookie, Integer id) {
-        String dontUsageVarible1 = "test";
-        String dontUsageVarible2 = "test";
         String username = jwtUtil.validateToken(jwtCookie);
         People people = peopleService.getByLogin(username);
         List<PeopleInProject> peopleInProjects =
